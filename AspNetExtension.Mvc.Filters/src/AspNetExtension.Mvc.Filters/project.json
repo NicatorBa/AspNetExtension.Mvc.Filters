@@ -10,6 +10,7 @@
     }
   },
   "buildOptions": {
+    "optimize": true,
     "xmlDoc": true
   }
 }
