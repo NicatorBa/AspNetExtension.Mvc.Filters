@@ -1,7 +1,9 @@
 {
-  "version": "0.1.0-*",
+  "version": "0.2.0-*",
+  "description": "Library for use a global MVC error model.",
   "dependencies": {
     "Microsoft.AspNetCore.Mvc.Abstractions": "1.1.0",
+    "Microsoft.AspNetCore.Mvc.Core": "1.1.0",
     "NETStandard.Library": "1.6.1"
   },
   "frameworks": {
@@ -10,7 +12,20 @@
     }
   },
   "buildOptions": {
+    "nowarn": [ "CS1591" ],
     "optimize": true,
     "xmlDoc": true
+  },
+  "packOptions": {
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/NicatorBa/AspNetExtension.Mvc.Filters"
+    },
+    "licenseUrl": "https://github.com/NicatorBa/AspNetExtension.Mvc.Filters/blob/master/LICENSE",
+    "tags": [
+      "aspnetcore",
+      "aspnetcoremvc",
+      "error"
+    ]
   }
 }

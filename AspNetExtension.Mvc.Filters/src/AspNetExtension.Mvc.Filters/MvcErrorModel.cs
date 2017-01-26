@@ -20,7 +20,7 @@ namespace AspNetExtension.Mvc.Filters
         /// <summary>
         /// An Url to the Api-documentation.
         /// </summary>
-        public string Info { get; set; }
+        public string InfoUrl { get; set; }
 
         /// <summary>
         /// Listed errors if the given model is invalid.
