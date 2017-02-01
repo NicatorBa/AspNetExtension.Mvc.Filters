@@ -9,13 +9,13 @@ namespace AspNetExtension.Mvc.Filters
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
     public class ClientErrorFilter : Attribute, IAsyncActionFilter
     {
-        private readonly IEnumerator<IErrorModule> _errorEnumerator;
+        private readonly IEnumerator<IClientErrorContract> _errorEnumerator;
 
-        private ErrorFilterContext _errorContext;
+        private ClientErrorContext _errorContext;
 
-        public ClientErrorFilter(SortedSet<IErrorModule> errorModules)
+        public ClientErrorFilter(IEnumerable<IClientErrorContract> contracts)
         {
-            _errorEnumerator = errorModules.GetEnumerator();
+            _errorEnumerator = contracts.GetEnumerator();
         }
 
         public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
@@ -31,12 +31,12 @@ namespace AspNetExtension.Mvc.Filters
                 return;
             }
 
-            _errorContext = new ErrorFilterContext(objectResult);
+            _errorContext = new ClientErrorContext(objectResult);
 
             await NextErrorModuleExecutionAsync();
         }
 
-        public async Task NextErrorModuleExecutionAsync()
+        private async Task NextErrorModuleExecutionAsync()
         {
             if (_errorEnumerator.MoveNext())
             {

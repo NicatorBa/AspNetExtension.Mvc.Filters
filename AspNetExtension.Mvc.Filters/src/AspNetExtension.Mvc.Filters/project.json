@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0-*",
+  "version": "0.3.0-*",
   "description": "Library for use a global MVC error model.",
   "dependencies": {
     "Microsoft.AspNetCore.Mvc.Abstractions": "1.1.0",
